@@ -1,2 +1,2 @@
-# -*- coding:utf-8 -*-
-#题目：画图，学用circle画圆形。　　　
+# -*- coding:utf-8 -*- 
+# 题目：画图，学用rectangle画方形。　　　
