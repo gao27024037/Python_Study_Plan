@@ -7,7 +7,7 @@ from bs4 import BeautifulSoup
 
 url0 = 'http://www.runoob.com/python/python-exercise-example'
 failed=[]
-for j in range(1, 101):
+for j in range(3, 101):
 
 # 爬数据
     url = url0 + str(j) + '.html'
@@ -25,7 +25,7 @@ for j in range(1, 101):
         f = file("Test" + str(j) + ".py", 'w')
         f.write('# -*- coding:utf-8 -*- ')
         question = list('\n# '+question.get_text())
-        for i in range(1, len(question) / 35):
+        for i in range(1, len(question) / 35+1):
             question.insert(i * 35, '\n# ')
         f.write("".join(question).encode('utf-8'))
         print 'write data success', j
