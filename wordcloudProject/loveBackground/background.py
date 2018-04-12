@@ -39,7 +39,7 @@ def color_func(word, font_size, position, orientation, random_state=None,
 
 #获取词频
 def get_word_frequency_dict(filename):
-    while convert_to_utf8(file) is False:
+    while convert_to_utf8(filename) is False:
         file = raw_input(file+"文件格式错误，请重新输入正确的文本格式（含文件后缀,如：input.txt）：")
     word_frequency_dict={}
     file=open(filename, 'r',encoding='utf-8')
