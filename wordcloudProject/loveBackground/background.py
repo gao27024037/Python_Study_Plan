@@ -1,8 +1,18 @@
 #create wordcloud for wechat backgroud with my girlfriend:llm
+print("加载数据包中，请耐心等待。。")
 import random
-
-from wordcloud import WordCloud
+import wordcloud
 import matplotlib.pyplot as plt
+from click._compat import raw_input
+import os
+
+import numpy
+import PIL
+import colorsys
+import matplotlib
+import builtins
+
+
 
 def grey_color_func(word, font_size, position, orientation, random_state=None,
                     **kwargs):
@@ -17,7 +27,7 @@ def get_word_frequency_dict(filename):
     for i in open(filename,'r',encoding='utf-8'):
         line=i.split(' ')
         if  len(line) is 1 or line[1] == '\n':
-            line.append(random.randrange(2,6))
+            line.append(random.randrange(3,6))
         if int(line[1])>10:
             line[1]=10
         word_frequency_dict[line[0]]=int(line[1])
@@ -25,12 +35,12 @@ def get_word_frequency_dict(filename):
 
 
 def creat_word_cloud(word_frequency_dict,name):
-    word_cloud=WordCloud( background_color="white", #背景颜色
-                          width=540, height=960, margin=2,
+    word_cloud=wordcloud.WordCloud( background_color="white", #背景颜色
+                          width=400, height=600, margin=2,
                           prefer_horizontal=1,
                             max_words=1800,# 词云显示的最大词数
-                            max_font_size=60, #字体最大值
-                            min_font_size=20,
+                            max_font_size=40, #字体最大值
+                            min_font_size=5,
                             font_path='simkai.ttf',
                             random_state=40,
                           color_func=grey_color_func
@@ -42,23 +52,27 @@ def creat_word_cloud(word_frequency_dict,name):
 
 
 if __name__ == '__main__':
-    print("**********************许多句话背景图片*************************")
-    print()
-    print("*           感谢使用**许多句话背景图片**制作工具")
+    os.system("cls")
+    print("**********************文字背景壁纸*************************")
+    print("*")
+    print("*           感谢使用**文字背景壁纸**制作工具")
     print("*           制作人：大宝贝&小宝贝 —— G ❤ L  ヾ(≧▽≦*)o")
     print("*")
-    print("*   TXT文件格式要求：1.每行一句话")
+    print("*   TXT文件格式要求：1.每行一句话,一共20行左右为宜")
     print("*                    2.话后隔一空格加数字（不大于10）,代表该句话在图中大小")
     print("*                    3.数字也可不加，表示大小随机")
     print("*   源码参考地址：https://github.com/gao27024037/Python_Study_Plan/tree/master/wordcloudProject/loveBackground")
     print("***************************************************************")
     print('\n')
-
-    file = input("请输入txt文件地址：")
-    jpg = input('请输入输出图片名字：')
+    #
+    file = raw_input("请输入txt文件地址（含文件后缀,如：input.txt）：")
+    while os.path.exists(file) is False:
+        file = raw_input(file+"文件不存在，请重新输入txt文件地址（含文件后缀,如：input.txt）：")
+    jpg = raw_input('请输入输出图片名字(不含后缀，如： output)：')
     while True:
         creat_word_cloud(get_word_frequency_dict(file),jpg)
         print("\n图片已生成："+jpg+".jpg ,如不满意请按N重新生成，如满意请按Y退出程序。")
-        answer = input('满意吗？（Y/N）')
+        answer = raw_input('满意吗？（Y/N）')
         if answer == 'y' or answer == 'Y':
-            exit()
+            exit(0)
+
