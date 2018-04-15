@@ -77,8 +77,8 @@ if __name__ == '__main__':
     gap = 60
     task = 'SkyrimSE'
     # 存在taskName.txt则读入其中的名字 作为进程名
-    if os.path.exists('taskName.txt'):
-        fname = file('taskName.txt', 'r')
+    if os.path.exists('task_names.txt'):
+        fname = file('task_names.txt', 'r')
         task = fname.readline()
     # 循环监控
     while True:

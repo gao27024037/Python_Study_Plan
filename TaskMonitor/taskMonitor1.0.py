@@ -56,8 +56,8 @@ def writeTotalTime(t):
 if __name__ == '__main__':
     gap = 60
     task = 'SkyrimSE'
-    if os.path.exists('taskName.txt'):
-        fname = file('taskName.txt', 'r')
+    if os.path.exists('task_names.txt'):
+        fname = file('task_names.txt', 'r')
         task = fname.readline()
     while True:
         if check_exsit(task + '.exe'):
