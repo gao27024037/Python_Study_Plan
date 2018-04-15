@@ -1,4 +1,5 @@
 # -*- coding:utf-8 -*-
+#python2
 
 import requests
 import jieba

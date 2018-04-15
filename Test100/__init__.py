@@ -1,5 +1,6 @@
 # http://www.runoob.com/python/python-100-examples.html
 # -*- coding:utf-8 -*-
+# python2
 import urllib2
 import gzip
 import StringIO
