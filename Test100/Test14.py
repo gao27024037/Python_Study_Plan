@@ -14,4 +14,4 @@ while x not in [1]:
    else:
        l.append(x)
 
-print l
+print (l)
