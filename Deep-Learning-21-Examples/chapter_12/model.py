@@ -26,7 +26,7 @@ def build_lstm(self):
         return drop
 
     with tf.name_scope('lstm'):
-        cell = tf.nn.rnn_cell.MultiRNNCell([get_a_cell(self.lstm_size, self.keep_prob) for _ in range(self.num_layers)])
+        cell = tf.contrib.nn.rnn_cell.MultiRNNCell([get_a_cell(self.lstm_size, self.keep_prob) for _ in range(self.num_layers)])
         self.initial_state = cell.zero_state(self.num_seqs, tf.float32)  # 初始隐藏状态 h0?
 
     # 通过dynamic_rnn对cell展开时间维度
